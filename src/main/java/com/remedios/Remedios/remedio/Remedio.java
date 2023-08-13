@@ -17,7 +17,7 @@ import jakarta.validation.Valid;
 public class Remedio {
 	
 	@Id
-	@GeneratedValue(strategy =GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nome;
 	
@@ -33,7 +33,7 @@ public class Remedio {
 	private Laboratorio laboratorio;
 
 	public Remedio(DadosCadastrais dados) {
-		this.setAtivo(true);
+		this.ativo = true;
 		this.nome = dados.nome();
 		this.via = dados.via();
 		this.lote = dados.lote();
@@ -139,5 +139,9 @@ public class Remedio {
 	}
 	public void inativar() {
 		this.ativo = false;
+	}
+
+	public void ativar() {
+		this.ativo = true;
 	}	
 }
